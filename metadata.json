@@ -1,0 +1,7 @@
+{
+  "name": "Bhojpuri Dost",
+  "description": "A voice-based AI assistant that speaks Bhojpuri. Talk to your fast-talking AI friend who responds in a fun and lively manner.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
