@@ -1,6 +1,6 @@
 {
   "name": "Bhojpuri Dost",
-  "description": "A voice-based AI assistant that speaks Bhojpuri. Talk to your fast-talking AI friend who responds in a fun and lively manner.",
+  "description": "एक आवाज़-आधारित AI सहायक जो भोजपुरी में बात करता है। अपने बातूनी AI दोस्त से बात करें जो मज़ेदार और ज़िंदादिल अंदाज़ में जवाब देता है।",
   "requestFramePermissions": [
     "microphone"
   ]

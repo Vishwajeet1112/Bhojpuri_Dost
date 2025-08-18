@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useSpeechToText } from './hooks/useSpeechToText';
 import { getBhojpuriResponseStream } from './services/geminiService';
@@ -152,24 +153,17 @@ export default function App(): React.ReactNode {
 
   useEffect(() => {
     if (speechError) {
-      // "no-speech" is a common occurrence where the mic times out.
-      // We handle it silently by letting the listening state reset, without showing a disruptive error message.
-      // The user can simply tap the mic again.
-      if (speechError === 'no-speech') {
-        return;
-      }
-      
       let friendlyMessage = '';
       switch (speechError) {
         case 'not-allowed':
         case 'service-not-allowed':
-          friendlyMessage = "Microphone permission ke zarurat bā. Browser settings me jake access de di.";
+          friendlyMessage = "माइक्रोफ़ोन की अनुमति आवश्यक है। कृपया ब्राउज़र सेटिंग्स में जाकर अनुमति दें।";
           break;
         case 'audio-capture':
-           friendlyMessage = "Tohār microphone me kuch gadbad lagat bā. Check kar la.";
+           friendlyMessage = "आपके माइक्रोफ़ोन में कोई समस्या लगती है। कृपया जाँच लें।";
            break;
         default:
-          friendlyMessage = `Ek anjaan samasya ho gail: ${speechError}. Phir se try kari.`;
+          friendlyMessage = `एक अज्ञात त्रुटि हुई: ${speechError}। कृपया पुनः प्रयास करें।`;
       }
       setError(friendlyMessage);
     }
@@ -238,10 +232,10 @@ export default function App(): React.ReactNode {
             onClick={handleToggleInputMode}
             disabled={isProcessing}
             className="flex items-center gap-2 text-rose-500 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label={`Switch to ${inputMode === 'voice' ? 'text' : 'voice'} input`}
+            aria-label={`इनपुट मोड को ${inputMode === 'voice' ? 'टेक्स्ट' : 'आवाज़'} में बदलें`}
           >
             {inputMode === 'voice' ? <KeyboardIcon /> : <MicIcon />}
-            <span className="text-sm font-medium">{inputMode === 'voice' ? 'Use Keyboard' : 'Use Microphone'}</span>
+            <span className="text-sm font-medium">{inputMode === 'voice' ? 'कीबोर्ड का प्रयोग करें' : 'माइक्रोफ़ोन का प्रयोग करें'}</span>
           </button>
         </footer>
       </div>

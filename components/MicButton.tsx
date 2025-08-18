@@ -33,7 +33,7 @@ const MicButton = ({ isListening, isProcessing, onClick }: MicButtonProps): Reac
       onClick={onClick}
       disabled={isDisabled}
       className={`relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out shadow-lg shadow-rose-500/20 dark:shadow-lg dark:shadow-rose-500/30 ${buttonStateClass} ${disabledClass}`}
-      aria-label={isListening ? 'Stop listening' : 'Start listening'}
+      aria-label={isListening ? 'सुनना बंद करें' : 'सुनना शुरू करें'}
     >
       <div className="absolute inset-0 rounded-full border-2 border-rose-400/50 dark:border-rose-500/50 animate-ping-slow"></div>
       {isProcessing ? <MicSpinnerIcon /> : <MicOnIcon />}

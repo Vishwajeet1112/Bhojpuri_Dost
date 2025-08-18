@@ -29,16 +29,16 @@ const TextInput = ({ onSendMessage, disabled }: TextInputProps): React.ReactNode
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Apna sandesh likha..."
+        placeholder="अपना संदेश लिखें..."
         disabled={disabled}
         className="flex-grow bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 rounded-full p-3 px-5 focus:ring-2 focus:ring-rose-500 dark:focus:ring-rose-400 focus:outline-none transition duration-200 disabled:opacity-50"
-        aria-label="Your message"
+        aria-label="आपका संदेश"
       />
       <button
         type="submit"
         disabled={disabled || !text.trim()}
         className="bg-rose-500 dark:bg-rose-600 text-white rounded-full w-12 h-12 flex-shrink-0 flex items-center justify-center hover:bg-rose-600 dark:hover:bg-rose-500 transition duration-200 disabled:bg-rose-300 dark:disabled:bg-rose-800 dark:disabled:opacity-70 disabled:cursor-not-allowed"
-        aria-label="Send message"
+        aria-label="संदेश भेजें"
       >
         <SendIcon />
       </button>

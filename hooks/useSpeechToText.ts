@@ -68,7 +68,7 @@ export const useSpeechToText = ({ onTranscriptFinalized }: SpeechToTextOptions) 
 
   useEffect(() => {
     if (!SpeechRecognition) {
-      setError('Speech recognition not supported by this browser.');
+      setError('यह ब्राउज़र वाक् पहचान का समर्थन नहीं करता है।');
       return;
     }
 
@@ -83,8 +83,15 @@ export const useSpeechToText = ({ onTranscriptFinalized }: SpeechToTextOptions) 
     };
 
     recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
-      setError(event.error);
+      // The 'no-speech' error is a common timeout. We handle it by simply stopping
+      // the listening state, without propagating it as a user-facing error.
+      if (event.error === 'no-speech') {
+        setIsListening(false);
+        return;
+      }
+
       console.error('Speech recognition error:', event.error, event.message);
+      setError(event.error);
       setIsListening(false);
     };
     
@@ -107,7 +114,7 @@ export const useSpeechToText = ({ onTranscriptFinalized }: SpeechToTextOptions) 
         setError(null);
       } catch (e) {
         console.error("Error starting recognition:", e);
-        setError("Could not start microphone. Please check permissions.");
+        setError("माइक्रोफ़ोन शुरू नहीं हो सका। कृपया अनुमतियों की जाँच करें।");
         setIsListening(false);
       }
     }

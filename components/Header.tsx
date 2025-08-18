@@ -39,13 +39,13 @@ const Header = ({ isTtsEnabled, onToggleTts, isProcessing, theme, onToggleTheme 
       <h1 className="text-4xl font-bold text-rose-600 dark:text-rose-400 tracking-wider">
         Bhojpuri Dost
       </h1>
-      <p className="text-gray-500 dark:text-gray-400 mt-1">Your fast-talking AI friend</p>
+      <p className="text-gray-500 dark:text-gray-400 mt-1">आपका बातूनी AI दोस्त</p>
       <div className="absolute top-1/2 right-4 -translate-y-1/2 flex items-center gap-4">
         <button
           onClick={onToggleTheme}
           disabled={isProcessing}
           className="text-gray-500 hover:text-rose-600 dark:text-gray-400 dark:hover:text-rose-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          aria-label={theme === 'light' ? "Switch to dark mode" : "Switch to light mode"}
+          aria-label={theme === 'light' ? "डार्क मोड में बदलें" : "लाइट मोड में बदलें"}
         >
           {theme === 'light' ? <MoonIcon /> : <SunIcon />}
         </button>
@@ -53,7 +53,7 @@ const Header = ({ isTtsEnabled, onToggleTts, isProcessing, theme, onToggleTheme 
           onClick={onToggleTts}
           disabled={isProcessing}
           className="text-gray-500 hover:text-rose-600 dark:text-gray-400 dark:hover:text-rose-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          aria-label={isTtsEnabled ? "Mute audio" : "Unmute audio"}
+          aria-label={isTtsEnabled ? "आवाज़ बंद करें" : "आवाज़ चालू करें"}
         >
           {isTtsEnabled ? <SpeakerOnIcon /> : <SpeakerOffIcon />}
         </button>
